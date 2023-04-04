@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movies Site</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Movies Site</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Trending </a></li>
+        <li><a href="#">About</a></li>
+        <li><form action="#" method="get">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search" placeholder="Enter search term..." />
+            <button type="submit">Go</button>
+          </form>
+        </li>
+      </ul>
+      <ul class="radio-list">
+        <li>Sort by: </li>
+            <li>
+              <label>
+                <input type="radio" name="option" value="option1">
+                Most watched
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="option" value="option2">
+                Highest rated
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="option" value="option3">
+                Newest
+              </label>
+            </li>
+          </ul>
+      </ul>
+    </nav>
+    <main>
+      <h2>Movies</h2>
+      <ul class="movie-list">
+        <li>
+          <img src="photos/bb.jpg" alt="Movie 1" />
+          <h3>Breaking Bad</h3>
+          <p>A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student in order to secure his family's future.</p>
+        </li>
+        <li>
+          <img src="photos/gay.jpg" alt="Movie 2" />
+          <h3>Gayniggers from Outer Space</h3>
+          <p>Extraterrestrial beings travel the galaxy to free men "oppressed" by females to make way for an entirely-homosexual society.</p>
+        </li>
+        <li>
+          <img src="photos/barbie.jpg" alt="Movie 3" />
+          <h3>Barbie</h3>
+          <p>To live in Barbie Land is to be a perfect being in a perfect place. Unless you have a full-on existential crisis. Or you're a Ken.</p>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <p>&copy; 2023 Movies Site</p>
+    </footer>
+  </body>
+</html>
