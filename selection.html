@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieExplorer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+ <!-- Navigation bar-->
+ <nav class="navbar">
+  <div class="navbar_container">
+    <a href="index.html#home" id="navbar_logo">MoX - Movie Explorer</a>
+    <div class="navbar_toggle" id="mobile-menu">  <!-- alea 3 liniute care apar pe telefon sau cand dai resize la pag -->
+      <span class="bar"></span> 
+      <span class="bar"></span> <!--3 linute la nav bar, deci 3 span uri din astea (span ca sa fie cv animatie? tf)-->
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar_menu">
+      <li class="navbar_item">
+        <a href="#index.html#home" class="navbar_links" id="home-page">Home</a>
+      </li>
+      <li class="navbar_item">
+        <a href="#movies" class="navbar_links" id="movies-page">Movies</a>
+      </li>
+      <li class="navbar_item">
+        <a href="#tv-shows" class="navbar_links" id="tv-shows-page"
+          >Tv Shows</a
+        >
+      </li>
+      <li class="navbar_item">
+         <form  id="form">
+        <input type="text" placeholder="Search" id="search" class="search">
+       </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <!-- Selects the genre -->
+  <div class="select">
+  <section class="characters">
+    <h2>Select the genres:</h2>
+    <input id="a" type="checkbox"><label for="a">Action</label>
+    <input id="b" type="checkbox"><label for="b">Adventure</label>
+    <input id="c" type="checkbox"><label for="c">Comedy</label>
+    <input id="d" type="checkbox"><label for="d">Crime</label>
+    <input id="e" type="checkbox"><label for="e">Documentary</label>
+    <input id="f" type="checkbox"><label for="f">Drama</label>
+    <input id="g" type="checkbox"><label for="g">Fantasy</label>
+    <input id="h" type="checkbox"><label for="h">History</label>
+  </section>
+  <section class="order">
+    <h2>Sort By:</h2>
+    <input type="radio" id="option1" name="option">
+    <label for="option1">Most watched</label>
+    <input type="radio" id="option2" name="option">
+    <label for="option2">Least watched</label>
+    <input type="radio" id="option3" name="option">
+    <label for="option3">Highest rated</label>
+    <input type="radio" id="option4" name="option">
+    <label for="option4">Lowest rated</label>
+    <input type="radio" id="option5" name="option">
+    <label for="option5">Newest</label>
+    <input type="radio" id="option6" name="option">
+    <label for="option6">Oldest</label>
+    <input type="radio" id="option7" name="option">
+    <label for="option7"> Title(A-Z)</label>
+    <input type="radio" id="option8" name="option">
+    <label for="option8"> Title(Z-A)</label>
+  </section>
+  <section class="order">
+    <h2>Where to watch:</h2>
+    <input type="checkbox" id="option12" name="option">
+    <label for="option12">NETFLIX</label>
+    <input type="checkbox" id="option13" name="option">
+    <label for="option13">DISNEY+</label>
+  </section>
+  <section class="order">
+    <h2>User Rating:</h2>
+    <input type="checkbox" id="option11" name="option">
+    <label for="option11">1</label>
+    <input type="checkbox" id="option21" name="option">
+    <label for="option21">2</label>
+    <input type="checkbox" id="option31" name="option">
+    <label for="option31">3</label>
+    <input type="checkbox" id="option41" name="option">
+    <label for="option41">4</label>
+    <input type="checkbox" id="option51" name="option">
+    <label for="option51">5</label>
+    <input type="checkbox" id="option61" name="option">
+    <label for="option61">6</label>
+    <input type="checkbox" id="option71" name="option">
+    <label for="option71"> 7</label>
+    <input type="checkbox" id="option81" name="option">
+    <label for="option81"> 8</label>
+    <input type="checkbox" id="option91" name="option">
+    <label for="option91"> 9</label>
+    <input type="checkbox" id="option101" name="option">
+    <label for="option101"> 10</label>
+  </section>
+</div>
+
+  <!-- Movies Section -->
+  <div class="movies" id="movies">
+    <div class="movies_section">
+      <div class="movies_card">
+      <div class="overview">
+        <h2>"Avatar"<span class="tmdb_grade">9.7</span></h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              <div class="movies_btn"><button>See more</button></div>
+        </div>
+       
+      </div>
+
+      <div class="movies_card">
+      <div class="overview">
+        <h2>"Supercell"<span class="tmdb_grade">9.7</span></h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              <div class="movies_btn"><button>See more</button></div>
+        </div>
+      </div>
+
+
+      <div class="movies_card">
+        <div class="overview">
+          <h2>"John Wick 4"<span class="tmdb_grade">9.7</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              <div class="movies_btn"><button>See more</button></div>
+          </div>
+        </div>
+
+        <div class="movies_card">
+          <div class="overview">
+            <h2>"Black Panther: Wakanda Forever"<span class="tmdb_grade">9.7</span></h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              <div class="movies_btn"><button>See more</button></div>
+            </div>
+          </div>
+    </div>
+  </div>
+
+ 
+    <footer>
+      <p>&copy; 2023 Movies Site</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
