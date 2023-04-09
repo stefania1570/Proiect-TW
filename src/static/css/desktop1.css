@@ -1,0 +1,81 @@
+.desktop1-desktop1 {
+    width: 100%;
+    height: 1024px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: rgba(19, 19, 19, 1);
+  }
+  .desktop1-rectangle1 {
+    top: 165px;
+    left: 93px;
+    width: 346px;
+    height: 453px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .desktop1-text {
+    top: 165px;
+    left: 730px;
+    color: rgba(255, 255, 255, 1);
+    width: 539px;
+    height: auto;
+    position: absolute;
+    font-size: 48px;
+    align-self: auto;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .desktop1-text2 {
+    top: 273px;
+    left: 491px;
+    color: rgba(255, 255, 255, 1);
+    width: 813px;
+    height: auto;
+    position: absolute;
+    font-size: 24px;
+    align-self: auto;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+      /* Center the button horizontally and vertically */
+      .nubody {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Style the button */
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Style the star symbol */
+      .star {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 16px;
+        color: #f1c40f;
+      }  
