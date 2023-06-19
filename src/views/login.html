@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="../static/CSS/style.css">
       <title>Login</title>
-      <link rel="stylesheet" href="css/style_login.css">
+      <link rel="stylesheet" href="../static/CSS/style_login.css">
    </head>
    <body>
       <nav class="navbar">
          <div class="navbar_container">
             <a href="#home" id="navbar_logo">MoX - Movie Explorer</a>
             <div class="navbar_toggle" id="mobile-menu">
-               <!-- alea 3 liniute care apar pe telefon sau cand dai resize la pag -->
                <span class="bar"></span> 
-               <span class="bar"></span> <!--3 linute la nav bar, deci 3 span uri din astea (span ca sa fie cv animatie? tf)-->
+               <span class="bar"></span>
                <span class="bar"></span>
             </div>
             <ul class="navbar_menu">
@@ -27,7 +26,7 @@
                      >Tv Shows</a
                      >
                </li>
-               <!-- <li class="navbar_btn">
+               <!-- <li class="navbar_btn"> TODO : AICI SA FIE MY ACCOUNT BUTTON + DE PUS IN MAIN PAGE
                   <a href="#sign-up" class="button" id="signup">Sign Up</a>
                   </li> -->
                <li class="navbar_item">
@@ -38,7 +37,7 @@
             </ul>
          </div>
       </nav>
-      <form class="form2">
+      <form class="form2" id="form2">
          <h3>Login Here</h3>
          <label for="username">Username</label>
          <input type="text" placeholder="Email or Phone" id="username">
@@ -46,8 +45,8 @@
          <input type="password" placeholder="Password" id="password">
          <button>Log In</button>
          <p>Don't have an account?</p>
-         <p><a href="register.html">Sign here!</a></p>
+         <p><a href="register.html">Sign up here!</a></p>
       </form>
-      <script src="app.js"></script>
+      <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
    </body>
 </html>

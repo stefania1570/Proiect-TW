@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieExplorer</title>
+    <link rel="stylesheet" href="../static/CSS/style.css" />
+  </head>
+  <body>
+ <!-- Navigation bar-->
+ <nav class="navbar">
+  <div class="navbar_container">
+    <a href="index.html#home" id="navbar_logo">MoX - Movie Explorer</a>
+    <div class="navbar_toggle" id="mobile-menu">  <!-- alea 3 liniute care apar pe telefon sau cand dai resize la pag -->
+      <span class="bar"></span> 
+      <span class="bar"></span> <!--3 linute la nav bar, deci 3 span uri din astea -->
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar_menu">
+      <li class="navbar_item">
+        <a href="#index.html#home" class="navbar_links" id="home-page">Home</a>
+      </li>
+      <li class="navbar_item">
+        <a href="#movies" class="navbar_links" id="movies-page">Movies</a>
+      </li>
+      <li class="navbar_item">
+        <a href="#tv-shows" class="navbar_links" id="tv-shows-page"
+          >Tv Shows</a
+        >
+      </li>
+      <li class="navbar_item">
+         <form  id="form">
+        <input type="text" placeholder="Search" id="search" class="search">
+       </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <!-- Selects the genre -->
+  <div class="select" id="select">
+  <section class="characters">
+    <h2>Select the genres:</h2>
+    <input id="a" type="checkbox"><label for="a">Action</label>
+    <input id="b" type="checkbox"><label for="b">Adventure</label>
+    <input id="c" type="checkbox"><label for="c">Comedy</label>
+    <input id="d" type="checkbox"><label for="d">Crime</label>
+    <input id="e" type="checkbox"><label for="e">Documentary</label>
+    <input id="f" type="checkbox"><label for="f">Drama</label>
+    <input id="g" type="checkbox"><label for="g">Fantasy</label>
+    <input id="h" type="checkbox"><label for="h">History</label>
+  </section>
+  <section class="order" id="sort">
+    <h2>Sort By:</h2>
+    <input type="radio" id="popularity.desc" name="option">
+    <label for="popularity.desc">Most watched</label>
+    <input type="radio" id="popularity.asc" name="option">
+    <label for="popularity.asc">Least watched</label>
+    <input type="radio" id="option3" name="option">
+    <label for="option3">Highest rated</label>
+    <input type="radio" id="option4" name="option">
+    <label for="option4">Lowest rated</label>
+    <input type="radio" id="option5" name="option">
+    <label for="option5">Newest</label>
+    <input type="radio" id="option6" name="option">
+    <label for="option6">Oldest</label>
+    <input type="radio" id="option7" name="option">
+    <label for="option7"> Title(A-Z)</label>
+    <input type="radio" id="option8" name="option">
+    <label for="option8"> Title(Z-A)</label>
+  </section>
+  <section class="order" id="platform">
+    <h2>Where to watch:</h2>
+    <input type="checkbox" id="Netflix" name="platform">
+    <label for="Netflix">NETFLIX</label>
+    <input type="checkbox" id="Disney+" name="platform">
+    <label for="Disney+">DISNEY+</label>
+  </section>
+  <section class="order" id="rating">
+    <h2>User Rating:</h2>
+    <input type="checkbox" id="1" name="grade">
+    <label for="1">1</label>
+    <input type="checkbox" id="2" name="grade">
+    <label for="2">2</label>
+    <input type="checkbox" id="3" name="grade">
+    <label for="3">3</label>
+    <input type="checkbox" id="4" name="grade">
+    <label for="4">4</label>
+    <input type="checkbox" id="5" name="grade">
+    <label for="5">5</label>
+    <input type="checkbox" id="6" name="grade">
+    <label for="6">6</label>
+    <input type="checkbox" id="7" name="grade">
+    <label for="7"> 7</label>
+    <input type="checkbox" id="8" name="grade">
+    <label for="8"> 8</label>
+    <input type="checkbox" id="9" name="grade">
+    <label for="9"> 9</label>
+    <input type="checkbox" id="10" name="grade">
+    <label for="10"> 10</label>
+  </section>
+  <section >
+  <button class = "button" id = "search-btn">SEARCH</button>
+  </section>
+</div>
+
+  <!-- Movies & TV Shows Section -->
+  <div class="movies" id="shows">
+    <div class="movies_section"></div>
+  </div>
+
+    <footer>
+      <p>&copy; 2023 Movies Site</p>
+    </footer>
+
+    <script src="../static/JAVASCRIPT/selection.js"></script>
+  </body>
+</html>

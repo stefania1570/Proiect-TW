@@ -40,4 +40,5 @@ const highlightMenu = () => {
   
   window.addEventListener('scroll', highlightMenu);
   window.addEventListener('click', highlightMenu);
-
+  //api key: f44d1cab4cfa09f296ab19d09156ce1c ca sa nu mai deschid tmdb
+ 

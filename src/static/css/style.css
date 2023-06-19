@@ -257,6 +257,7 @@ html, body {
   -webkit-user-select: none;
   vertical-align: baseline;
   width: auto;
+  margin-top: 20px ;
   margin-right: 20px;
   margin-bottom: 20px;
 }
@@ -314,28 +315,12 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   display: flex;
   flex-direction: column;
   color: #fff;
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg");
   background-size: cover; 
   position:relative;
   overflow: hidden; /*ca sa aiba overview ul ascuns pana dai hover */
   transition: 0.5s ease-in;
   
 }
-
-.movies_card:nth-child(2) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gbGHezV6yrhua0KfAgwrknSOiIY.jpg");
-  background-size: cover; 
-}
-
-.movies_card:nth-child(3) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg");
-  background-size: cover; 
-} 
-
- .movies_card:nth-child(4) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sv1xJUazXeYqALzczSZ3O6nkH75.jpg");
-  background-size: cover; 
-} 
 
 .overview h2, .overview h2 {
   display: flex;
@@ -412,28 +397,12 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
   display: flex;
   flex-direction: column;
   color: #fff;
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/daSFbrt8QCXV2hSwB0hqYjbj681.jpg");
   background-size: cover; 
   position:relative;
   overflow: hidden;
   transition: 0.5s ease-in;
 }
 
-.tv-shows_card:nth-child(2) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eeYyXdjHDQWpuEMrtPXYQUsoI7I.jpg");
-  background-size: cover; 
-} 
-
-
-.tv-shows_card:nth-child(3) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg");
-  background-size: cover; 
-} 
-
-.tv-shows_card:nth-child(4) {
-  background-image: url("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ggFHVNu6YYI5L9pCfOacjizRGt.jpg");
-  background-size: cover; 
-} 
 
 @media screen and (max-width: 1300px) {
 
