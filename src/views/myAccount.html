@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieExplorer</title>
+    <link rel="stylesheet" href="../static/CSS/style.css" />
+    <link rel="stylesheet" href="../static/CSS/account.css" />
+  </head>
+  <body>
+ <!-- Navigation bar-->
+ <nav class="navbar">
+  <div class="navbar_container">
+    <a href="index.html#home" id="navbar_logo">MoX - Movie Explorer</a>
+    <div class="navbar_toggle" id="mobile-menu">  <!-- cele 3 liniute care apar pe telefon la nav -->
+      <span class="bar"></span> 
+      <span class="bar"></span> 
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar_menu">
+        <li class="navbar_item">
+          <a href="index.html#home" class="navbar_links" id="home-page">Home</a>
+        </li>
+        <li class="navbar_item">
+          <a href="index.html#movies" class="navbar_links" id="movies-page">Movies</a>
+        </li>
+        <li class="navbar_item">
+          <a href="index.html#tv-shows" class="navbar_links" id="tv-shows-page">Tv Shows</a>
+        </li>
+        <li class="navbar_item">
+          <a href="statistics.html" class="navbar_links" id="statistics-page">Statistics</a>
+        </li>
+        <li class="navbar_item">
+          <a href="myAccount.html" class="navbar_links" id="account-page">My Account</a>
+        </li>
+        <li class="navbar_item">
+           <form  id="form">
+          <input type="text" placeholder="Search" id="search" class="search">
+         </form>
+        </li>
+      </ul>
+  </div>
+</nav>
+<div class="section"> 
+<div class="card">
+    <h1 >Nume cont: </h1>
+     <!-- aici sa dam append la innerHTML un h1 numele de la server i guess?? -->
+    <h1 >Want to log out of your account? <button class="button"><a>Log Out</a></button></h1> <!-- logout logic de pus aici prin myAccount.js-->
+  </div>
+  <h1 >Favorite movies: </h1>
+   <div class="fav" id="fav">
+     <div class="movies_section"></div> <!--facem append in innerHTML cum am facut la home page -->
+  </div>
+
+  <h1 >Favorite TV Shows: </h1>
+  <div class="fav" id="fav">
+    <div class="tv-shows_section"></div>
+  </div>
+ </div>
+
+    <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
+  </body>
+</html>

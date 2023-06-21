@@ -16,8 +16,14 @@ const highlightMenu = () => {
     const homeMenu = document.querySelector('#home-page');
     const movies = document.querySelector('#movies-page');
     const tv_shows = document.querySelector('#tv-shows-page');
-  
-    // adds 'highlight' class to my menu items
+    const statistics = document.querySelector('#statistics-page');
+    const account = document.querySelector('#account-page');
+
+    if(window.location.href.includes("statistics.html")){
+    statistics.classList.add('highlight');
+  } else if(window.location.href.includes("myAccount.html")){
+    account.classList.add('highlight');
+  } else{
     if (window.innerWidth > 960 && window.scrollY < 600) {
       homeMenu.classList.add('highlight');
       movies.classList.remove('highlight');
@@ -36,9 +42,26 @@ const highlightMenu = () => {
     if ((elem && window.innerWIdth < 960 && window.scrollY < 600) || elem) {
       elem.classList.remove('highlight');
     }
+  }
   };
   
   window.addEventListener('scroll', highlightMenu);
   window.addEventListener('click', highlightMenu);
-  //api key: f44d1cab4cfa09f296ab19d09156ce1c ca sa nu mai deschid tmdb
+//add to fav animation
+  const button = document.querySelector(".addtofav");
+const done = document.querySelector(".done");
+console.log(button);
+let added = false;
+button.addEventListener('click',()=>{
+  if(added){
+    done.style.transform = "translate(-110%) skew(-40deg)";
+    added = false;
+  }
+  else{
+    done.style.transform = "translate(0px)";
+    added = true;
+  }
+    
+});
+
  

@@ -1,0 +1,193 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #191919;
+}
+
+a {
+  text-decoration: none;
+  color: #5C7FB8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.movie-card {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: #A9A8A3;
+  padding: 40px 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 900px;
+  height: 640px;
+  background: #F0F0ED;
+  border-radius: 5px;
+  position: relative;
+}
+
+.hero {
+  height: 342px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.hero:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: red;
+   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_bg.jpg"); /* asta pt fundalul din spatele titlului(luam tot de pe tmdb) */
+  z-index: -1;
+  transform: skewY(-2.2deg);
+  transform-origin: 0 0;
+  -webkit-backface-visibility: hidden;
+}
+
+.cover {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+  z-index: 2;
+}
+
+.details {
+  padding: 190px 0 0 280px;
+}
+.details .title1 {
+  color: white;
+  font-size: 44px;
+  margin-bottom: 13px;
+  position: relative;
+}
+.details .title1 span {
+  position: absolute;
+  top: 3px;
+  margin-left: 12px;
+  background: #C4AF3D;
+  border-radius: 5px;
+  color: #544C21;
+  font-size: 14px;
+  padding: 0px 4px;
+}
+
+
+.description {
+  bottom: 0px;
+  height: 200px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+}
+
+.genres {
+  padding-left: 50px;
+  padding-top: 120px;
+  width: 220px;
+  float: left;
+  text-align: center;
+}
+
+.genre_tag {
+  background: white;
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.genre_tag:hover {
+  background: #ddd;
+}
+
+.description-actors {
+  padding-left: 41px;
+  padding-top: 30px;
+  margin-left: 20px;
+  width: 480px;
+  float: left;
+}
+
+.avatars {
+  margin-top: 23px;
+}
+.avatars img {
+  cursor: pointer;
+}
+.avatars img:hover {
+  opacity: 0.6;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+}
+  
+  .addtofav{
+    display:block;
+    padding:0.5em 1em 0.5em 1em;
+    border-radius:100px;
+    border:none;
+    font-size:12px;
+    position:relative;
+    background:#d35776;
+    cursor:pointer;
+    height:30px;
+    width:200px;
+    overflow:hidden;
+    transition:transform 0.1s;
+    z-index:1;
+  }
+  .addtofav:hover{
+    transform:scale(1.1);
+  }
+  .pretext{
+    color:#fff;
+    background:#d35776;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Quicksand', sans-serif;
+  }
+  i{
+    margin-right:10px;
+  }
+  .done{
+    background:#ff0000;
+    position:absolute;
+    width:100%;
+    top:0;
+    left:0;
+    transition:transform 0.3s ease;
+  
+    transform:translate(-110%) skew(-40deg);
+  }
+  .posttext{
+    background:#ff0000;
+  }
+  .fa-check{
+    background:#ff0000;
+  }
+  
