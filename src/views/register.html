@@ -6,51 +6,53 @@
       <link rel="stylesheet" href="../static/CSS/style_login.css">
    </head>
    <body>
-      <nav class="navbar">
-         <div class="navbar_container">
-            <a href="#home" id="navbar_logo">MoX - Movie Explorer</a>
-            <div class="navbar_toggle" id="mobile-menu">
-               <span class="bar"></span> 
-               <span class="bar"></span>
-               <span class="bar"></span>
-            </div>
-            <ul class="navbar_menu">
-               <li class="navbar_item">
-                  <a href="#home" class="navbar_links" id="home-page">Home</a>
-               </li>
-               <li class="navbar_item">
-                  <a href="#movies" class="navbar_links" id="movies-page">Movies</a>
-               </li>
-               <li class="navbar_item">
-                  <a href="#tv-shows" class="navbar_links" id="tv-shows-page"
-                     >Tv Shows</a
-                     >
-               </li>
-               <!-- <li class="navbar_btn">
-                  <a href="#sign-up" class="button" id="signup">Sign Up</a>
-                  </li> -->
-               <li class="navbar_item">
-                  <form  id="form">
-                     <input type="text" placeholder="Search" id="search" class="search">
-                  </form>
-               </li>
-            </ul>
-         </div>
-      </nav>
-      <form class="form3">
+   <!-- Navigation bar-->
+ <nav class="navbar">
+   <div class="navbar_container">
+     <a href="index.html#home" id="navbar_logo">MoX - Movie Explorer</a>
+     <div class="navbar_toggle" id="mobile-menu">  
+       <span class="bar"></span> 
+       <span class="bar"></span> 
+       <span class="bar"></span>
+     </div>
+     <ul class="navbar_menu">
+       <li class="navbar_item">
+         <a href="index.html#home" class="navbar_links" id="home-page">Home</a>
+       </li>
+       <li class="navbar_item">
+         <a href="index.html#movies" class="navbar_links" id="movies-page">Movies</a>
+       </li>
+       <li class="navbar_item">
+         <a href="index.html#tv-shows" class="navbar_links" id="tv-shows-page">Tv Shows</a>
+       </li>
+       <li class="navbar_item">
+         <a href="statistics.html" class="navbar_links" id="statistics-page">Statistics</a>
+       </li>
+       <li class="navbar_item">
+         <a href="myAccount.html" class="navbar_links" id="account-page">My Account</a>
+       </li>
+       <li class="navbar_item">
+          <form  id="form">
+         <input type="text" placeholder="Search" id="search" class="search">
+        </form>
+       </li>
+     </ul>
+   </div>
+  </nav>
+
+      <form action="/" method="POST" id="form2" class="form3">
          <h3>Register Here</h3>
-         <label>Username</label>
-         <input type="text" placeholder="Username">
-         <label>Email</label>
-         <input type="text" placeholder="Email">
-         <label>Password</label>
-         <input type="password" placeholder="Password">
-         <label>Repeat Password</label>
-         <input type="password" placeholder="Repeat Password">
-         <button>Create account</button>
+         <input type="username" class="input-box" id="username" placeholder="Username" required />
+         <input type="password" class="input-box" id="password-input" placeholder="Password" required />
+         <input type="email" class="input-box" id="email" placeholder="Email: model@yahoo.com" required />
+         <input type="password" class="input-box" id="password-input2" placeholder="Repeat Password" required />
+         <div >
+          <input class="buttons" type="submit" value="Register" />
+         </div>
          <p>Already have an account?</p>
          <p><a href="login.html">Log in here!</a></p>
       </form>
-      <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
+      <!-- <script src="../static/JAVASCRIPT/mobile_animation.js"></script> -->
+      <script src="../static/JAVASCRIPT/register.js"></script>
    </body>
 </html>

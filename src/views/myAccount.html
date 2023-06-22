@@ -45,7 +45,8 @@
 <div class="card">
     <h1 >Nume cont: </h1>
      <!-- aici sa dam append la innerHTML un h1 numele de la server i guess?? -->
-    <h1 >Want to log out of your account? <button class="button"><a>Log Out</a></button></h1> <!-- logout logic de pus aici prin myAccount.js-->
+    <h1 >Want to log out of your account? <a onclick="delete_cookie('jwt', '/')" href="index.html">Logout</a>
+      <!-- <button id="logout" class="button"><a>Log Out</a></button></h1> logout logic de pus aici prin myAccount.js -->
   </div>
   <h1 >Favorite movies: </h1>
    <div class="fav" id="fav">
@@ -59,5 +60,12 @@
  </div>
 
     <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
+    <script>
+      const logoutButton = document.querySelector("#logout");
+      logoutButton.addEventListener("click", () => {
+        window.location.href = "login.html";
+        localStorage.removeItem("token");
+      });
+    </script>
   </body>
 </html>
