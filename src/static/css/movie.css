@@ -52,7 +52,7 @@ a:hover {
   top: 0;
   left: 0;
   background: red;
-   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_bg.jpg"); /* asta pt fundalul din spatele titlului(luam tot de pe tmdb) */
+   background: var(--background-url);
   z-index: -1;
   transform: skewY(-2.2deg);
   transform-origin: 0 0;
@@ -64,25 +64,28 @@ a:hover {
   top: 160px;
   left: 40px;
   z-index: 2;
+  height: 270px;
+  width: 200px;
 }
 
 .details {
   padding: 190px 0 0 280px;
 }
 .details .title1 {
-  color: white;
-  font-size: 44px;
+  color: rgb(255, 0, 0);
+  font-size: 2em;
   margin-bottom: 13px;
   position: relative;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.details .title1 span {
+.details .title1 span{
   position: absolute;
-  top: 3px;
   margin-left: 12px;
   background: #C4AF3D;
   border-radius: 5px;
   color: #544C21;
-  font-size: 14px;
+  font-size:1em;
   padding: 0px 4px;
 }
 
@@ -93,10 +96,12 @@ a:hover {
   font-size: 16px;
   line-height: 26px;
   color: #B1B0AC;
+  display: flex;
+  justify-content: space-between;
 }
 
 .genres {
-  padding-left: 50px;
+  padding-left: 30px;
   padding-top: 120px;
   width: 220px;
   float: left;
@@ -118,21 +123,10 @@ a:hover {
 }
 
 .description-actors {
-  padding-left: 41px;
   padding-top: 30px;
   margin-left: 20px;
   width: 480px;
   float: left;
-}
-
-.avatars {
-  margin-top: 23px;
-}
-.avatars img {
-  cursor: pointer;
-}
-.avatars img:hover {
-  opacity: 0.6;
 }
 
 label {
@@ -189,5 +183,11 @@ label {
   }
   .fa-check{
     background:#ff0000;
+  }
+  .tmdb_grade{
+  background-color: rgb(0, 0, 0);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
   }
   

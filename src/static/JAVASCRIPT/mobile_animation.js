@@ -23,7 +23,7 @@ const highlightMenu = () => {
     statistics.classList.add('highlight');
   } else if(window.location.href.includes("myAccount.html")){
     account.classList.add('highlight');
-  } else{
+  } else if(window.location.href.includes("index.html")){
     if (window.innerWidth > 960 && window.scrollY < 600) {
       homeMenu.classList.add('highlight');
       movies.classList.remove('highlight');

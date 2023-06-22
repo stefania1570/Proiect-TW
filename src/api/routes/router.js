@@ -16,11 +16,11 @@ async function router(req, res) {
     else if(req.url === '/get-api-user') { 
         console.log("[router] get-api-user")
         usersRoute(req, res)
-    } else if (req.url === '/get-movies') { // get-products
+    } else if (req.url === '/get-movies') { // get-movies
         console.log("[router] get-movies api")
         moviesRoute(req, res)
-    } else if (req.url.match(/^\/get-movie\/([0-9a-z]{24})$/)) { //get product
-        console.log("[router] get-product api")
+    } else if (req.url.match(/^\/get-movie\/([0-9a-z]{24})$/)) { //get movie by id
+        console.log("[router] get-movie api")
         moviesRoute(req, res)
     } 
  

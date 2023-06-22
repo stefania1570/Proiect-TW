@@ -23,6 +23,7 @@ async function getMovies(req, res) {
 async function getMovie(req, res, id) { 
   try {
     let movie = await Movie.findByIdNetflix(id);
+    
     //if the resulted array is [] 
     if (movie.length == 0){ 
       movie = await Movie.findByIdDisney(id);

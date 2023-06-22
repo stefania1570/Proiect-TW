@@ -29,12 +29,12 @@ class Product {
 
     static findByIdNetflix(id) { 
         const db = getDb()
-        return db.collection('Netflix').find({_id: new mongodb.ObjectId(id)}).toArray()
+        return db.collection('Netflix').find(ObjectId(id)).toArray()
     }
 
     static findByIdDisney(id) { 
         const db = getDb()
-        return db.collection('Disney').find({_id: new mongodb.ObjectId(id)}).toArray()
+        return db.collection('Disney').find(ObjectId(id)).toArray()
     }
 
 }
