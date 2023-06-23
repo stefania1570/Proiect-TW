@@ -67,6 +67,7 @@ async function initProduct(movie) {
       <p>${movie.description} </p>
     `;
 }
+console.log("[movie] trying to get movie with id:", id)
 const url = `http://localhost:5500/get-movie/${id}`;
   fetch(url, {
     method: 'GET',

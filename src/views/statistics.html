@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../static/CSS/style.css" />
     <link rel="stylesheet" href="../static/CSS/statistics.css" />
     <link rel="stylesheet" href="../static/CSS/account.css" />
+    <script src="../static/JAVASCRIPT/statistics.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   </head>
   <body>
  <!-- Navigation bar-->
@@ -42,12 +45,12 @@
     </ul>
   </div>
  </nav>
-
- <div class="section"> 
-  <div class="card">
+ <div class="section">
+  <div id="myPlotHorror"></div>
+    <div class="card">
       <h1 class="statistic-title">How did the duration of horror movies evolve between
-        <label for="year">year:</label>
-          <select id="year">
+          <select id="year1Horror">
+            <option value="2021">2021</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
@@ -61,8 +64,8 @@
             <option value="2010">2010</option>
           </select>
           and 
-          <label for="year">year:</label>
-          <select id="year">
+          <select id="year2Horror">
+            <option value="2021">2021</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
             <option value="2018">2018</option>
@@ -77,77 +80,82 @@
           </select> ?
       </h1>
       <div class="btns">
-      <label class="dropdown">
-        <div class="dd-button">Export</div>
-        <input type="checkbox" class="dd-input" />
-        <ul class="dd-menu">
-          <li onclick="exportChart('csv')">CSV</li>
-          <li onclick="exportChart('webp')">WebP</li>
-          <li onclick="exportChart('svg')">SVG</li>
-        </ul>
-      </label>
-      <button class="btn" onclick="fetchData()">View</button>
+        <label class="dropdown">
+          <div class="dd-button" onclick="exportHorror()">Export</div>
+          <input type="checkbox" class="dd-input" />
+          <select id="typeHorror">
+            <option value="csv">csv</option>
+            <option value="webp">webp</option>
+            <option value="svg">svg</option>
+          </select>
+        </label>
+        <button class="btn" onclick="sendHorror()">View</button>
+      </div>
     </div>
-      
   </div>
-   </div>
-
-   <div class="section">
-    <div class="card">
-    <h2 class="statistic-title">TOP 10 movie directors by the:
-      <select id="category">
-        <option value="Sum of movie durations">Sum of movie durations</option>
-        <option value="Most awards won for a movie">Most awards won for a movie</option>
-      </select>
-    </h2>
-    <div class="btns">
-  <label class="dropdown">
-    <div class="dd-button">Export</div>
-    <input type="checkbox" class="dd-input" />
-    <ul class="dd-menu">
-      <li onclick="exportChart('csv')">CSV</li>
-      <li onclick="exportChart('webp')">WebP</li>
-      <li onclick="exportChart('svg')">SVG</li>
-    </ul>
-  </label>
-  <button class="btn" onclick="fetchData()">View</button>
-</div>
+  <div class="section">
+    <div id="myPlotTop10"></div>
+      <div class="card">
+        <h1 class="statistic-title">Top 10 movie directors based on:
+            <select id="category">
+              <option value="Sum of movie durations">Sum of movie durations</option>
+            </select>
+        </h1>
+        <div class="btns">
+          <label class="dropdown">
+            <div class="dd-button" onclick="exportTop10()">Export</div>
+            <input type="checkbox" class="dd-input" />
+            <select id="typeTop10">
+              <option value="csv">csv</option>
+              <option value="webp">webp</option>
+              <option value="svg">svg</option>
+            </select>
+          </label>
+          <button class="btn" onclick="sendTop10()">View</button>
+        </div>
+      </div>
     </div>
-
-<div class="section">
-  <div class="card">
-    <h1 class="statistic-title">How many
-      <select id="genre">
-        <option value="Comedy">Comedy</option>
-        <option value="Adventure">Adventure</option>
-        <option value="Horror">Horror</option>
-        <option value="Drama">Drama</option>
-        <option value="Family">Family</option>
-      </select>
-      movies were made by Netflix vs. Disney+ in the
-      <label for="year2">year:</label>
-      <select id="year2">
-        <option value="2020">2020</option>
-        <option value="2019">2019</option>
-        <option value="2018">2018</option>
-        <option value="2017">2017</option>
-      </select> ?
-  </h1>
-  <div class="btns">
-  <label class="dropdown">
-<div class="dd-button">Export</div>
-<input type="checkbox" class="dd-input" />
-<ul class="dd-menu">
-  <li onclick="exportChart('csv')">CSV</li>
-  <li onclick="exportChart('webp')">WebP</li>
-  <li onclick="exportChart('svg')">SVG</li>
-</ul>
-</label>
-<button class="btn" onclick="fetchData()">View</button>
-</div>
-  </div>
-  </div>
-
+    <div class="section">
+      <div id="myPlotHowMany"></div>
+        <div class="card">
+          <h1 class="statistic-title">How many
+              <select id="genre">
+                <option value="Comedy">Comedy</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Horror">Horror</option>
+                <option value="Drama">Drama</option>
+                <option value="Family">Family</option>
+              </select>
+              movies were made by Netflix vs Disney+ in the year:
+              <select id="yearHowMany">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+              </select> ?
+          </h1>
+          <div class="btns">
+            <label class="dropdown">
+              <div class="dd-button" onclick="exportHowMany()">Export</div>
+              <input type="checkbox" class="dd-input" />
+              <select id="typeHorror">
+                <option value="csv">csv</option>
+                <option value="webp">webp</option>
+                <option value="svg">svg</option>
+              </select>
+            </label>
+            <button class="btn" onclick="sendHowMany()">View</button>
+          </div>
+        </div>
+      </div>
     <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
   </body>
 </html>

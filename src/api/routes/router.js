@@ -1,8 +1,9 @@
 const { moviesRoute } = require('./moviesRoute')
 const { usersRoute } = require('./usersRoute')
+const { statisticsRoute } = require('./statisticsRoute')
 
 async function router(req, res) {
-
+    console.log(req.url);
     if (req.url === '/add-user') {
         console.log("[router] save-user api")
         usersRoute(req, res)
@@ -23,8 +24,10 @@ async function router(req, res) {
         console.log("[router] get-movie api")
         moviesRoute(req, res)
     } 
- 
-    
+    else if(req.url.match(/^\/statistics\/[a-z]+/) ){ // i need to reply with a statistic
+        console.log("[router] statistics api")
+        statisticsRoute(req, res)
+    } 
     else {
         console.log("[router] 404 error Page Not Found")
         res.writeHead(404, { 'Content-Type': 'application/json' })
