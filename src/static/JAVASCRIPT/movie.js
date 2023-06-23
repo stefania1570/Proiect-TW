@@ -35,8 +35,8 @@ async function initProduct(movie) {
 
     const poster = document.getElementById("cover");
     
-    if(data.results.length !=0 && data.results[0].poster_path != null){
-        poster.src = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`; 
+    if(data.results.length !=0){
+      poster.src = data.results[0].poster_path ? `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`: `https://via.placeholder.com/500x750.png?text=Movie+Poster`; 
     } 
 
     const imageUrl = `https://image.tmdb.org/t/p/w500${data.results[0].backdrop_path}`;
@@ -67,6 +67,8 @@ async function initProduct(movie) {
       <p>${movie.description} </p>
     `;
 }
+
+
 const url = `http://localhost:5500/get-movie/${id}`;
   fetch(url, {
     method: 'GET',

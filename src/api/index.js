@@ -10,12 +10,12 @@ mongodbConnect(async () => {
 
 const server = http.createServer((req, res) => {
     // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*'); 
-
+   res.setHeader('Access-Control-Allow-Origin', '*'); 
+   res.setHeader('Access-Control-Allow-Credentials', 'true');
   // Handle preflight requests (OPTIONS)
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Add the allowed HTTP methods
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Add the allowed headers
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, *'); // Add the allowed headers
     return res.end();
   }
         router(req, res)

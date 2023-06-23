@@ -31,7 +31,7 @@
           <a href="statistics.html" class="navbar_links" id="statistics-page">Statistics</a>
         </li>
         <li class="navbar_item">
-          <a href="myAccount.html" class="navbar_links" id="account-page">My Account</a>
+          <a href="myAccount.html" class="navbar_links" id="account-page" >My Account</a>
         </li>
         <li class="navbar_item">
            <form  id="form">
@@ -44,13 +44,13 @@
 <div class="section"> 
 <div class="card">
     <h1 >Nume cont: </h1>
-     <!-- aici sa dam append la innerHTML un h1 numele de la server i guess?? -->
-    <h1 >Want to log out of your account? <a onclick="delete_cookie('jwt', '/')" href="index.html">Logout</a>
-      <!-- <button id="logout" class="button"><a>Log Out</a></button></h1> logout logic de pus aici prin myAccount.js -->
+     
+    <h1 >Want to log out of your account? <button id="logout" class="button" onclick="delete_cookie('jwt', '/')" href="/src/views/login.html">Logout</button>
+      
   </div>
   <h1 >Favorite movies: </h1>
-   <div class="fav" id="fav">
-     <div class="movies_section"></div> <!--facem append in innerHTML cum am facut la home page -->
+   <div class="fav" id="fav1">
+     <div class="movies_section"></div> 
   </div>
 
   <h1 >Favorite TV Shows: </h1>
@@ -60,10 +60,13 @@
  </div>
 
     <script src="../static/JAVASCRIPT/mobile_animation.js"></script>
+    <script src="../static/JAVASCRIPT/myAccount.js"></script>
+    <script src="../static/JAVASCRIPT/logout.js"></script>
+    <script src="../static/JAVASCRIPT/logout.js"></script>
     <script>
       const logoutButton = document.querySelector("#logout");
-      logoutButton.addEventListener("click", () => {
-        window.location.href = "login.html";
+        logoutButton.addEventListener("click", () => {
+        window.location.href = "/src/views/login.html";
         localStorage.removeItem("token");
       });
     </script>

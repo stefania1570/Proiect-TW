@@ -1,8 +1,6 @@
 const Movie = require("../models/moviesModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
-
 const { getPostData } = require("../utils/utils");
 
 // get movies GET /get-movies

@@ -2,14 +2,14 @@ const mongodb = require('mongodb')
 const ObjectId = mongodb.ObjectId
 const getDb = require('../utils/database').getDb
 
-class Product {
+class Movie {
 
-    static findByTitle(_title) { //findByName //TODO IDK??
+    static findByTitle(_title) { 
         const db = getDb()
         const getNetflix = db.collection('Netflix').find({ title: _title }).toArray()
         const getDisney = db.collection('Disney').find({ title: _title }).toArray()
         const all = [...getNetflix,...getDisney]
-        return all[0] //all ?
+        return all[0] 
     }
     
     static findAll() {
@@ -36,8 +36,9 @@ class Product {
         const db = getDb()
         return db.collection('Disney').find(ObjectId(id)).toArray()
     }
+      
 
 }
 
-module.exports = Product
+module.exports = Movie
 

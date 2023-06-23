@@ -1,30 +1,32 @@
 const { moviesRoute } = require('./moviesRoute')
 const { usersRoute } = require('./usersRoute')
+const { favRoute } = require('./favoritesRoute')
 
 async function router(req, res) {
 
-    if (req.url === '/add-user') {
-        console.log("[router] save-user api")
+    if (req.url === '/add-user') { //register
+        console.log("[router] save-user route")
         usersRoute(req, res)
-    } else if (req.url === '/login-user') {
-        console.log("[router] login-user api")
-        usersRoute(req, res)
-    } else if (req.url.match(/^\/get-user\/([0-9a-z]{24})$/)) { //id in mongodb are 24 caract
-        console.log("[router] get-user api")
-        usersRoute(req, res)
-    } 
-    else if(req.url === '/get-api-user') { 
-        console.log("[router] get-api-user")
+    } else if (req.url === '/login-user') { //login
+        console.log("[router] login-user route")
         usersRoute(req, res)
     } else if (req.url === '/get-movies') { // get-movies
-        console.log("[router] get-movies api")
+        console.log("[router] get-movies route")
         moviesRoute(req, res)
     } else if (req.url.match(/^\/get-movie\/([0-9a-z]{24})$/)) { //get movie by id
-        console.log("[router] get-movie api")
+        console.log("[router] get-movie by id route")
         moviesRoute(req, res)
     } 
- 
-    
+    else if(req.url === '/get-api-favorites') { //get movies+tv shows pt un user
+        console.log("[router] get-api-favorites")
+        favRoute(req, res)
+    } else if (req.url === '/add-fav') { //adauga la favorite
+        console.log("[router] save-fav route")
+        favRoute(req, res)
+    } else if(req.url === '/delete-api-fav') { //sterge de la favorite
+        console.log("[router] delete-api-fav")
+        favRoute(req, res)
+    }
     else {
         console.log("[router] 404 error Page Not Found")
         res.writeHead(404, { 'Content-Type': 'application/json' })

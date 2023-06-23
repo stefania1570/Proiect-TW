@@ -1,12 +1,10 @@
-//mainPageList.js e pt prima pagina cand trb sa dea doar primele 8 filme + primele 8 seriale
-//in selection.js o sa se faca o cautare multi-criteriala a datelor
 const apiKey = 'f44d1cab4cfa09f296ab19d09156ce1c';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  var moviesSection = document.getElementById('movies');
+  var moviesSection = document.getElementById('fav1');
   var moviesContainer = moviesSection.querySelector('.movies_section');
-  var tvShowsSection = document.getElementById('tv-shows');
+  var tvShowsSection = document.getElementById('fav');
   var tvShowsContainer = tvShowsSection.querySelector('.tv-shows_section');
 
   async function tmdbData(path) {
@@ -98,59 +96,27 @@ document.addEventListener('DOMContentLoaded', () => {
     tvShowsContainer.appendChild(showCard);
  }
 
-const url = 'http://localhost:5500/get-movies';
-let loadedMovies = 0; // Track the number of movies loaded so far
-let loadedTVShows = 0; // Track the number of movies loaded so far
-
-  fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Incorrect URL: The URL is incorrect and the server returned a ' + response.status + ' status');
-      }
-      return response.json();
+function getFavorites(){
+    //get movies favorites 
+    const url = `http://localhost:5500/get-api-favorites`; 
+    const cookieHeader = document.cookie;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            cookieHeader
+        }),
+    }).then(response => {
+        return response.json();
+        
+    }).then(json => {
+        console.log(json) //intai sa vad daca imi da ce trb, dupa generez dinamic aici
+    }).catch(err => {
+        console.log(err)
     })
-    .then(json => {
-      // Loop through the data and load 40 more movies
-      let i = 0;
-      while((loadedMovies < 8 && i <= json.length) || (loadedTVShows < 8 && i <= json.length) && i < 16) {
-        const movie = json[i];
-        if(movie.type == "Movie"){
-          addMovie(movie);
-          loadedMovies++;
-        }else {
-          addTVShow(movie);
-          loadedTVShows++;
-        }
-        i++;
-      }
-    })
-    .catch(err => {
-      console.log(err);
-    });
+}
 
+getFavorites();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

@@ -1,4 +1,4 @@
-const { saveUser, loginUser, deleteUser} = require('../controllers/usersController')
+const { saveUser, loginUser } = require('../controllers/usersController')
 
 function usersRoute(req, res) {
     if(req.url === '/add-user' && req.method === 'POST') { // register

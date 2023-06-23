@@ -261,7 +261,7 @@ async function loginUser(req, res) {
         res.writeHead(403, { "Content-Type": "application/json" });
 
         res.end(
-          JSON.stringify({ route: "/src/views/login.html", message: "Wrong username!" })
+          JSON.stringify({ route: "/login.html", message: "Wrong username!" })
         );
       }
     }

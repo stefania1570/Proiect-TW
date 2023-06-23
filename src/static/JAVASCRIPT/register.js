@@ -33,8 +33,8 @@ async function userRegister(event) {
 
         return response.json();
         }).then(data => {
-            console.log(data); //{route: '/login.html', message: 'Your account has been created successfully!'}
-            window.location.href = data.route //TODO sa te redirectioneze la login page
+            //console.log(data); //{route: '/login.html', message: 'Your account has been created successfully!'}
+            window.location.href = data.route 
             window.alert(data.message)
         }).catch(error => {
 

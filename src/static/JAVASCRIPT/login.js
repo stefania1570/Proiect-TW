@@ -9,7 +9,7 @@ async function loginUser(event) {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
-    console.log("[login]", username, password)
+    //console.log("[login]", username, password)
 
     const url = 'http://localhost:5500/login-user';
     fetch(url, {
@@ -22,11 +22,6 @@ async function loginUser(event) {
                 password
             }),
     }).then(response => {
-
-        if (!response.ok) {
-            throw new Error('Incorrect URL: The URL is incorrect and the server returned a ' + response.status + ' status');
-        }
-
         return response.json();
         }).then(json => {
             console.log("[login]", json.information)//token...
@@ -35,7 +30,7 @@ async function loginUser(event) {
         date.setTime(date.getTime() + (35 * 60 * 1000)); //35 min cookie
         const expires = date.toUTCString();
         document.cookie = `jwt=${json.information}; expires=${expires}; path=/`; 
-
+        
         window.location.href = json.route
         window.alert(json.message)
         }).catch(error => {

@@ -2,9 +2,9 @@ const apiKey = 'f44d1cab4cfa09f296ab19d09156ce1c';
 const moviesSection = document.getElementById('shows');
 const moviesContainer = moviesSection.querySelector('.movies_section');
 
+
 async function addMovie(movie) { 
   console.log("[movie-js]", movie); 
-  //let ok = 1; //verificare daca are poster
 
   const movieCard = document.createElement('div');
   movieCard.className = 'movies_card';
@@ -29,11 +29,10 @@ async function addMovie(movie) {
 
   const poster = document.createElement('img');
 
-  if(data.results.length !=0 && data.results[0].poster_path != null){
-    poster.src = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`; 
-    // cand este apasata imaginea -> redirectionare catre pagina filmului
-    poster.setAttribute("onClick", `location.href="/src/views/movie.html?id=${movie._id}"`)
+  if(data.results.length !=0 ){
+    poster.src = data.results[0].poster_path ? `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`: `https://via.placeholder.com/500x750.png?text=Movie+Poster`; 
   } 
+    movieCard.setAttribute("onClick", `location.href="/src/views/movie.html?id=${movie._id}"`)
 
     overview.appendChild(title);
     title.appendChild(grade);
@@ -56,7 +55,7 @@ async function tmdbData(path) {
   }
 
 const url = 'http://localhost:5500/get-movies';
-let loadedMovies = 0; // Track the number of movies loaded so far
+var loadedMovies = 0; // Track the number of movies loaded so far
 
 function loadMoreMovies() {
   fetch(url, {
@@ -106,39 +105,41 @@ observer.observe(targetElement);
 
 
   // Search button event listener - AICI SE FACE FILTRAREA
-  // const searchBtn = document.getElementById('search-btn');
-  // searchBtn.addEventListener('click', () => {
-  //   //Genre selector 
-  //   var selectedGenres = [];
-  //   const genreCheckboxes = document.querySelectorAll('.characters input[type="checkbox"]:checked');
-  //   genreCheckboxes.forEach(checkbox => {
-  //     selectedGenres.push(checkbox.id);
-  //   });
+  const searchBtn = document.getElementById('search-btn');
+  searchBtn.addEventListener('click', () => {
 
-  //   //Sort by selector  
-  //   var sortBy = "popularity.desc"; 
-  //   const sortByOption = document.querySelector('#sort input[name="option"]:checked');
-  //   if(sortByOption!=null){
-  //     sortBy = sortByOption.id;
-  //     //console.log(sortBy);
-  //   }
+    loadedMovies = 0;
+    //Genre selector 
+    var selectedGenres = [];
+    const genreCheckboxes = document.querySelectorAll('.characters input[type="checkbox"]:checked');
+    genreCheckboxes.forEach(checkbox => {
+      selectedGenres.push(checkbox.id);
+    });
 
-  //   //Platform selector (Netflix or Disney+)
-  //   var selectedPlatforms = [];
-  //   const platformCheckboxes = document.querySelectorAll('#platform input[type="checkbox"]:checked');
-  //   platformCheckboxes.forEach(checkbox => {
-  //     selectedPlatforms.push(checkbox.id);
-  //   });
+    //Sort by selector  
+    var sortBy = "popularity.desc"; 
+    const sortByOption = document.querySelector('#sort input[name="option"]:checked');
+    if(sortByOption!=null){
+      sortBy = sortByOption.id;
+      //console.log(sortBy);
+    }
 
-  //   //Selection by rating
-  //   var selectedRatings = [];
-  //   const ratingCheckboxes = document.querySelectorAll('#rating input[type="checkbox"]:checked');
-  //   ratingCheckboxes.forEach(checkbox => {
-  //     selectedRatings.push(checkbox.id);
-  //   });
-  //   console.log(selectedRatings);
+    //Platform selector (Netflix or Disney+)
+    var selectedPlatforms = [];
+    const platformCheckboxes = document.querySelectorAll('#platform input[type="checkbox"]:checked');
+    platformCheckboxes.forEach(checkbox => {
+      selectedPlatforms.push(checkbox.id);
+    });
+
+    //Selection by rating
+    var selectedRatings = [];
+    const ratingCheckboxes = document.querySelectorAll('#rating input[type="checkbox"]:checked');
+    ratingCheckboxes.forEach(checkbox => {
+      selectedRatings.push(checkbox.id);
+    });
+    console.log(selectedRatings);
 
 
-  //   // Perform the search with the selected criteria
-  //   //getDataFromDB(selectedGenres, sortBy, selectedPlatforms, selectedRatings);
-  // });
+    // Perform the search with the selected criteria
+    //getDataFromDB(selectedGenres, sortBy, selectedPlatforms, selectedRatings);
+  });
