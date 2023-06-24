@@ -245,7 +245,7 @@ async function loginUser(req, res) {
           res.writeHead(200, { "Content-Type": "application/json" });
           res.end(
             JSON.stringify({
-              route: "/src/views/index.html",
+              route: "/src/views/home.html",
               message: "Login successful!",
               information: token,
             })
