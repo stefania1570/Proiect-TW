@@ -1,6 +1,7 @@
 const { moviesRoute } = require('./moviesRoute')
 const { usersRoute } = require('./usersRoute')
 const { favRoute } = require('./favoritesRoute')
+const { statisticsRoute } = require('./statisticsRoute')
 
 async function router(req, res) {
 
@@ -16,6 +17,10 @@ async function router(req, res) {
     } else if (req.url.match(/^\/get-movie\/([0-9a-z]{24})$/)) { //get movie by id
         console.log("[router] get-movie by id route")
         moviesRoute(req, res)
+    } 
+    else if(req.url.match(/^\/statistics\/[a-z]+/) ){ // i need to reply with a statistic
+        console.log("[router] statistics api")
+        statisticsRoute(req, res)
     } 
     else if(req.url === '/get-api-favorites') { //get movies+tv shows pt un user
         console.log("[router] get-api-favorites")
