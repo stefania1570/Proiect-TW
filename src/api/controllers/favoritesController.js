@@ -31,7 +31,7 @@ async function getApiFavorites(req, res,type) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/api/login.html", message: "You must login to view the Favorite List!" }));
+      res.end(JSON.stringify({ route: "/views/login.html", message: "You must login to view the Favorite List!" }));
     }
     else {
       // decodificare token preluat din cookie

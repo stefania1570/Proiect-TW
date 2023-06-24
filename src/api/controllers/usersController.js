@@ -63,7 +63,7 @@ async function getApiUser(req, res) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/views/login.html", message: "You must login to view Profile page!" }));
+      res.end(JSON.stringify({ route: "/login.html", message: "You must login to view Profile page!" }));
     }
     else {
       // decodificare token preluat din cookie
@@ -102,7 +102,7 @@ async function saveUser(req, res) {
 
       res.end(
         JSON.stringify({
-          route: "/views/register.html",
+          route: "/register.html",
           message:
             "Username format is invalid. Don't use special characters such as $, ! or {}!",
         })
@@ -119,7 +119,7 @@ async function saveUser(req, res) {
 
           res.end(
             JSON.stringify({
-              route: "/views/register.html",
+              route: "/register.html",
               message:
                 "Email must not contain special characters such as $, ! or { }",
             })
@@ -132,7 +132,7 @@ async function saveUser(req, res) {
 
           res.end(
             JSON.stringify({
-              route: "/views/register.html",
+              route: "/register.html",
               message:
                 "Password: 1 number, 1 uppercase, 1 lowercase and at least 8 from the mentioned characters!",
             })
@@ -145,7 +145,7 @@ async function saveUser(req, res) {
 
           res.end(
             JSON.stringify({
-              route: "/views/register.html",
+              route: "/register.html",
               message: "Please make sure your passwords match!",
             })
           );
@@ -161,7 +161,7 @@ async function saveUser(req, res) {
           res.writeHead(201, { "Content-Type": "application/json" });
           res.end(
             JSON.stringify({
-              route: "/views/login.html",
+              route: "/login.html",
               message: "Your account has been created successfully!",
             })
           );
