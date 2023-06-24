@@ -2,7 +2,7 @@ const apiKey = 'f44d1cab4cfa09f296ab19d09156ce1c';
 const moviesSection = document.getElementById('shows');
 const moviesContainer = moviesSection.querySelector('.movies_section');
 var selectedGenres = [];
-var sortBy ; //default
+var sortBy ; 
 var selectedTypes = [];
 
 
@@ -170,14 +170,6 @@ function getFilters(){
   typeCheckboxes.forEach(checkbox => {
     selectedTypes.push(checkbox.id);
   });
-
-  // //Selection by rating
-  // var selectedRatings = [];
-  // const ratingCheckboxes = document.querySelectorAll('#rating input[type="checkbox"]:checked');
-  // ratingCheckboxes.forEach(checkbox => {
-  //   selectedRatings.push(checkbox.id);
-  // });
-  // console.log(selectedRatings);
 
 }
 

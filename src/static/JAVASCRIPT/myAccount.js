@@ -115,6 +115,7 @@ function getFavorites(){
     }).then(json => {
       const favorites = json[0] // favorites[0].type contine tipul primul show ( film sau serial )
       //console.log( json[1]) //username
+      console.log("myAcc favorites:", favorites)
       const nume = document.getElementById("nume")
       const name = document.createElement('h2');
       name.textContent = json[1];
@@ -124,14 +125,13 @@ function getFavorites(){
       while(i <= favorites.length) {
         const movie = favorites[i];
         console.log( favorites[i])
-        if(movie.type == "Movie"){
+        if(i!=3 && movie.type == "Movie"){ //i!=3 pt ca e null idk dc
           addMovie(movie);
         }else {
           addTVShow(movie);
         }
         i++;
       }
-      console.log(favorites)
     }).catch(err => {
         console.log(err)
     })
