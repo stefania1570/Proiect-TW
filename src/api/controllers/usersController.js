@@ -63,7 +63,7 @@ async function getApiUser(req, res) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/login.html", message: "You must login to view Profile page!" }));
+      res.end(JSON.stringify({ route: "./view/login.html", message: "You must login to view Profile page!" }));
     }
     else {
       // decodificare token preluat din cookie
