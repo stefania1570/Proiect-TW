@@ -12,8 +12,8 @@ const mongodbConnect = (callback) => {
     const config = new Config();
 
     mongoClient
-        .connect(
-         `mongodb://${config['db_username']}:${config['db_password']}@${config['db_host']}:${config['db_port']}/?${config['db_options']}`)
+        .connect('mongodb+srv://stefania:student@mox.k5pddlv.mongodb.net/')
+        //`mongodb+srv://${config['db_username']}:${config['db_password']}@${config['db_host']}:${config['db_port']}/?${config['db_options']}`)
         .then(client => {
             _database = client.db('MoX')
             console.log("[database] Connected to mongodb database!")
