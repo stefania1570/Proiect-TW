@@ -31,7 +31,7 @@ async function getApiFavorites(req, res,type) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/src/api/login.html", message: "You must login to view the Favorite List!" }));
+      res.end(JSON.stringify({ route: "/api/login.html", message: "You must login to view the Favorite List!" }));
     }
     else {
       // decodificare token preluat din cookie
@@ -88,7 +88,7 @@ async function saveFav(req, res) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/src/views/login.html", message: "You must login to add a movie to favorite list!" }));
+      res.end(JSON.stringify({ route: "/views/login.html", message: "You must login to add a movie to favorite list!" }));
     }
     else {
       // decodificare token preluat din cookie
@@ -120,7 +120,7 @@ async function saveFav(req, res) {
         }
         else {
           res.writeHead(204, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ route: "/src/views/movie.html", message: "Movie already exists in favorite list!" }));
+          res.end(JSON.stringify({ route: "/views/movie.html", message: "Movie already exists in favorite list!" }));
         }
     }
   } catch (err) {
@@ -157,7 +157,7 @@ async function deleteMovieFav(req, res) {
     
     if(value === "" || value === "undefined") {
       res.writeHead(401, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({ route: "/src/views/login.html", message: "You must login to add a movie to favorite list!" }));
+      res.end(JSON.stringify({ route: "/views/login.html", message: "You must login to add a movie to favorite list!" }));
     }
     else {
       // decodificare token preluat din cookie
