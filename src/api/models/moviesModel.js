@@ -37,6 +37,14 @@ class Movie {
         return db.collection('Disney').find(ObjectId(id)).toArray()
     }
 
+    static async findById(id){
+        const db = await getDb()
+        var netflix = await db.collection('Netflix').find({_id : id}).toArray();
+        var disney =  await db.collection('Disney').find({_id : id}).toArray();
+        netflix.concat(disney)
+        return netflix
+    }
+
     static async findHorror(year1, year2){
         const db = await getDb()
         let yearsArray = [];

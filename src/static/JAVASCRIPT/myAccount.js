@@ -123,6 +123,7 @@ function getFavorites(){
       let i = 0;
       while(i <= favorites.length) {
         const movie = favorites[i];
+        console.log( favorites[i])
         if(movie.type == "Movie"){
           addMovie(movie);
         }else {

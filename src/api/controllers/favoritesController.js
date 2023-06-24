@@ -3,6 +3,7 @@ const Movies = require("../models/moviesModel");
 const { getPostData } = require("../utils/utils");
 const Users = require("../models/usersModel");
 const jwt = require("jsonwebtoken");
+const Movie = require("../models/moviesModel");
 
 // get favs GET /get-api-favorites
 async function getApiFavorites(req, res,type) {
@@ -39,15 +40,21 @@ async function getApiFavorites(req, res,type) {
       console.log("[userid:]", userId);
       const message = "message"
       // filmele favorite pt userId-ul utilizatorului care este logat in sesiunea curenta
-      const favoriteMovies = await Favorites.findAllByUserIdType(userId, 'Movie');
-      const favoriteShows = await Favorites.findAllByUserIdType(userId, 'TV Show');
-      const favorites = favoriteMovies.concat(favoriteShows);
-      //console.log("[favorites:]", favorites);
-      const name = await Users.findById(userId)
+      var favoriteMovies = await Favorites.findAllByUserIdType(userId, 'Movie');
+      var favoriteShows = await Favorites.findAllByUserIdType(userId, 'TV Show');
+      var fakeFavorites = await favoriteMovies.concat(favoriteShows);
+      var favorites = [];
+      for( let i = 0 ; i < fakeFavorites.length; i++){
+        var id = fakeFavorites[i].movieId;
+        var movie = await Movies.findById(id)
+        favorites.push(movie[0])
+      }
+      console.log("[favorites:]", favorites);
+      var name = await Users.findById(userId)
       // console.log("[favorites:] userID:", userId)
       // console.log("[favorites: ]name:", name[0].username)
       res.writeHead(200, { "Content-Type": "application/json"});
-      res.end(JSON.stringify([favorites, name[0].username]));
+      await res.end(JSON.stringify([favorites, name[0].username]));
     }
   } catch (err) {
     console.log(err);
