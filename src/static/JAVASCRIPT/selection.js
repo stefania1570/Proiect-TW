@@ -1,6 +1,15 @@
 const apiKey = 'f44d1cab4cfa09f296ab19d09156ce1c';
 const moviesSection = document.getElementById('shows');
 const moviesContainer = moviesSection.querySelector('.movies_section');
+var selectedGenres = [];
+var sortBy ; //default
+var selectedTypes = [];
+
+
+window.addEventListener('pageshow', function(event) {
+    getFilters()
+    console.log(selectedGenres)
+});
 
 
 async function addMovie(movie) { 
@@ -71,9 +80,50 @@ function loadMoreMovies() {
       return response.json();
     })
     .then(json => {
-      // Loop through the data and load 40 more movies
-      for (let i = loadedMovies; i < loadedMovies + 40 && i < json.length; i++) {
-        const movie = json[i];
+      // Filter the movies based on genres if selectedGenres is not empty
+      let filteredMovies = json;
+      if (selectedGenres.length > 0) {
+        filteredMovies = json.filter(movie => {
+          for (const genre of selectedGenres) {
+            if (movie.listed_in.includes(genre)) {
+              return true;
+            }
+          }
+          return false;
+        });
+        console.log(selectedGenres)
+      }
+
+      // Filter the movies based on movie/TV show type if selectedTypes is not empty
+      if (selectedTypes.length == 1) {
+        filteredMovies = filteredMovies.filter(movie => {
+            if (movie.type === selectedTypes[0]) {
+              return true;
+            }
+          return false;
+        });
+      }
+      switch (sortBy) {
+        case 'option7': //title asc
+          filteredMovies.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'option8': //title desc
+          filteredMovies.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+        case 'option5': //newest
+          filteredMovies.sort((a, b) => b.release_year - a.release_year);
+          break;
+        case 'option6': //oldest
+          filteredMovies.sort((a, b) => a.release_year - b.release_year);
+          break;
+        default:
+          // No sorting option specified, use the default order
+          break;
+      }
+      // Load 40 more movies at a time
+      const endIndex = loadedMovies + 40;
+      for (let i = loadedMovies; i < endIndex && i < filteredMovies.length; i++) {
+        const movie = filteredMovies[i];
         addMovie(movie);
       }
       loadedMovies += 40; // Increment the count of loaded movies
@@ -82,6 +132,7 @@ function loadMoreMovies() {
       console.log(err);
     });
 }
+
 
 // Intersection Observer callback function
 function handleIntersection(entries, observer) {
@@ -99,6 +150,37 @@ const observer = new IntersectionObserver(handleIntersection, {
   threshold: 0
 });
 
+function getFilters(){
+  //Genre selector 
+  const genreCheckboxes = document.querySelectorAll('.characters input[type="checkbox"]:checked');
+   genreCheckboxes.forEach(checkbox => {
+    selectedGenres.push(checkbox.id);
+  });
+
+  //Sort by selector  
+  
+  const sortByOption = document.querySelector('#sort input[name="option"]:checked');
+  if(sortByOption!=null){
+    sortBy = sortByOption.id;
+    //console.log(sortBy);
+  }
+
+  // type (movie/tvshow)
+  const typeCheckboxes = document.querySelectorAll('#tip input[type="checkbox"]:checked');
+  typeCheckboxes.forEach(checkbox => {
+    selectedTypes.push(checkbox.id);
+  });
+
+  // //Selection by rating
+  // var selectedRatings = [];
+  // const ratingCheckboxes = document.querySelectorAll('#rating input[type="checkbox"]:checked');
+  // ratingCheckboxes.forEach(checkbox => {
+  //   selectedRatings.push(checkbox.id);
+  // });
+  // console.log(selectedRatings);
+
+}
+
 // Start observing the target element 
 const targetElement = document.getElementById('footer');
 observer.observe(targetElement);
@@ -109,37 +191,10 @@ observer.observe(targetElement);
   searchBtn.addEventListener('click', () => {
 
     loadedMovies = 0;
-    //Genre selector 
-    var selectedGenres = [];
-    const genreCheckboxes = document.querySelectorAll('.characters input[type="checkbox"]:checked');
-    genreCheckboxes.forEach(checkbox => {
-      selectedGenres.push(checkbox.id);
-    });
-
-    //Sort by selector  
-    var sortBy = "popularity.desc"; 
-    const sortByOption = document.querySelector('#sort input[name="option"]:checked');
-    if(sortByOption!=null){
-      sortBy = sortByOption.id;
-      //console.log(sortBy);
+    getFilters()
+    // Clear all children of moviesContainer
+    while (moviesContainer.firstChild) {
+      moviesContainer.removeChild(moviesContainer.firstChild);
     }
-
-    //Platform selector (Netflix or Disney+)
-    var selectedPlatforms = [];
-    const platformCheckboxes = document.querySelectorAll('#platform input[type="checkbox"]:checked');
-    platformCheckboxes.forEach(checkbox => {
-      selectedPlatforms.push(checkbox.id);
-    });
-
-    //Selection by rating
-    var selectedRatings = [];
-    const ratingCheckboxes = document.querySelectorAll('#rating input[type="checkbox"]:checked');
-    ratingCheckboxes.forEach(checkbox => {
-      selectedRatings.push(checkbox.id);
-    });
-    console.log(selectedRatings);
-
-
-    // Perform the search with the selected criteria
-    //getDataFromDB(selectedGenres, sortBy, selectedPlatforms, selectedRatings);
+    loadMoreMovies()
   });

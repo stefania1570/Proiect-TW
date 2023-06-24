@@ -1,6 +1,7 @@
 const Favorites = require("../models/favoritesModel");
 const Movies = require("../models/moviesModel");
 const { getPostData } = require("../utils/utils");
+const Users = require("../models/usersModel");
 const jwt = require("jsonwebtoken");
 
 // get favs GET /get-api-favorites
@@ -40,10 +41,13 @@ async function getApiFavorites(req, res,type) {
       // filmele favorite pt userId-ul utilizatorului care este logat in sesiunea curenta
       const favoriteMovies = await Favorites.findAllByUserIdType(userId, 'Movie');
       const favoriteShows = await Favorites.findAllByUserIdType(userId, 'TV Show');
-      const favorites = { ...favoriteMovies, ...favoriteShows };
+      const favorites = favoriteMovies.concat(favoriteShows);
       //console.log("[favorites:]", favorites);
+      const name = await Users.findById(userId)
+      // console.log("[favorites:] userID:", userId)
+      // console.log("[favorites: ]name:", name[0].username)
       res.writeHead(200, { "Content-Type": "application/json"});
-      res.end(JSON.stringify({favorites}));
+      res.end(JSON.stringify([favorites, name[0].username]));
     }
   } catch (err) {
     console.log(err);

@@ -1,5 +1,6 @@
 const apiKey = 'f44d1cab4cfa09f296ab19d09156ce1c';
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
   var moviesSection = document.getElementById('fav1');
@@ -112,7 +113,24 @@ function getFavorites(){
         return response.json();
         
     }).then(json => {
-        console.log(json) //intai sa vad daca imi da ce trb, dupa generez dinamic aici
+      const favorites = json[0] // favorites[0].type contine tipul primul show ( film sau serial )
+      //console.log( json[1]) //username
+      const nume = document.getElementById("nume")
+      const name = document.createElement('h2');
+      name.textContent = json[1];
+      nume.appendChild(name);
+
+      let i = 0;
+      while(i <= favorites.length) {
+        const movie = favorites[i];
+        if(movie.type == "Movie"){
+          addMovie(movie);
+        }else {
+          addTVShow(movie);
+        }
+        i++;
+      }
+      console.log(favorites)
     }).catch(err => {
         console.log(err)
     })
