@@ -2,8 +2,8 @@ const { moviesRoute } = require('./moviesRoute')
 const { usersRoute } = require('./usersRoute')
 const { favRoute } = require('./favoritesRoute')
 const { statisticsRoute } = require('./statisticsRoute')
-const fs = require('fs')
-const index = fs.readFile("../views/index.html","utf-8")
+// const fs = require('fs')
+// const index = fs.readFile("../views/index.html","utf-8")
 async function router(req, res) {
     if(req.url === '/' || req.url === ''){
         console.log("[router] WELCOME!")
