@@ -2,21 +2,14 @@ const { moviesRoute } = require('./moviesRoute')
 const { usersRoute } = require('./usersRoute')
 const { favRoute } = require('./favoritesRoute')
 const { statisticsRoute } = require('./statisticsRoute')
-const fs = require('fs')
+const { indexRoute } = require('./indexRoute')
+
 
 async function router(req, res) {
     if(req.url === '/' || req.url === ''){
         console.log("[router] WELCOME!")
-        res.writeHead(200, { "Content-Type": "text/html"});
-        fs.readFile('../views/index.html', 'utf8', function(err, data){
-      
-            // Display the file content
-            res.end(data);
-        });
-          
-        console.log('readFile called');
-    }
-    if (req.url === '/add-user') { //register
+        indexRoute(req, res)
+    } else if (req.url === '/add-user') { //register
         console.log("[router] save-user route")
         usersRoute(req, res)
     } else if (req.url === '/login-user') { //login
